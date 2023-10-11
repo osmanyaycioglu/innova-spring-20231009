@@ -1,0 +1,88 @@
+gen:
+  hello:
+    prefix: test
+hello:
+  language: esp
+  prefix: deneme
+  schedule:
+    cron: 0 1 1 * * ?
+    period: 1000
+info:
+  deneme:
+    application:
+      type: live
+      version: 1.0.0
+    osman: osman
+management:
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+  endpoints:
+    jmx:
+      exposure:
+        exclude: '*'
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+my:
+  app:
+    client-description: deneme description
+    clientPort: 2090
+    client_host: 192.168.1.1
+    customer-map:
+      default1:
+        age: 20
+        first-name: df1
+        last-name: ls1
+      test1:
+        age: 25
+        first-name: test1
+        last-name: ltest1
+    customers:
+      - age: 53
+        first-name: osman
+        last-name: yay
+      - age: 33
+        first-name: ali
+        last-name: veli
+    default-strs:
+      - d1
+      - d2
+      - d3
+      - d4
+    operation-properties:
+      ftpDesc: ftp deneme
+      ftpHost: 127.0.0.1
+      ftpPort: 1900
+      ftpType: NORMAL
+# server properties
+server:
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+  port: 9090
+spring:
+  profiles:
+    active: live
+    default: live
+  task:
+    scheduling:
+      pool:
+        size: 4
+  datasource:
+    url: jdbc:h2:file:/data/demo
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console.enabled: true

@@ -1,14 +1,24 @@
 package training.spring.innova.springboot.rest;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import training.spring.innova.springboot.properties.AppProperties;
 
 //@Controller
 //@ResponseBody
 
 @RestController
 @RequestMapping("/hello")
+@RequiredArgsConstructor
 public class HelloController {
+
+    private final AppProperties appProperties;
+
+    @GetMapping("/app")
+    public AppProperties appProperties(){
+        return appProperties;
+    }
 
     // @RequestMapping(value = "/hello1",method = RequestMethod.GET)
     @GetMapping("/hello1")
